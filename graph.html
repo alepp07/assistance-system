@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rasa Core Visualisation</title>
+    <script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+    <script src="https://dagrejs.github.io/project/dagre/latest/dagre.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://dagrejs.github.io/project/graphlib-dot/v0.6.3/graphlib-dot.js"></script>
+</head>
+<body>
+<div id="errormsg" style="color: #b00"></div>
+<svg>
+    <style id="graph-style">
+        .node.invisible > rect {
+            display: none;
+        }
+
+        .node.start > rect {
+            fill: #7f7;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node.end > rect {
+            fill: #f77;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node:not(.active) > rect, .node:not(.active) > .label {
+            opacity: 0.4;
+        }
+
+        .edgePath:not(.active) path {
+            opacity: 0.4;
+        }
+
+        .node.ellipsis > rect {
+            fill: #CCC;
+        }
+
+        .node.intent > rect {
+            fill: #7ff;
+        }
+
+        .node.dashed > rect {
+            stroke-dasharray: 5;
+        }
+
+        text {
+            font-weight: 300;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serf, serif;
+            font-size: 14px;
+            color: #1f1d1d;
+        }
+
+        .node rect {
+            stroke: #444;
+            fill: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .edgePath path {
+            stroke: #333;
+            stroke-width: 1.5px;
+        }
+
+        svg {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            height: 100%;
+            width: 100%
+        }
+    </style>
+    <g></g>
+</svg>
+<script>
+
+  function serveGraph() {
+    let oldInputGraphValue;
+
+    const url = 'visualization.dot';
+    const refreshInterval = 500;
+
+    // trigger a refresh by fetching an updated graph
+    setInterval(function () {
+      fetch(url).then(r => r.text()).then(dot => {
+        document.getElementById('errormsg').innerHTML = '';
+        if (oldInputGraphValue === dot) return;
+
+        oldInputGraphValue = dot;
+        drawGraph(dot);
+      }).catch(err => {
+        document.getElementById('errormsg').innerHTML =
+          'Failed to update plot. (' + err.message + ')';
+      });
+    }, refreshInterval);
+  }
+
+  function drawGraph(graph) {
+    let g = graphlibDot.read(graph);
+    // Set margins, if not present
+    if (!g.graph().hasOwnProperty("marginx") &&
+      !g.graph().hasOwnProperty("marginy")) {
+      g.graph().marginx = 20;
+      g.graph().marginy = 20;
+    }
+    g.graph().transition = function (selection) {
+      return selection.transition().duration(300);
+    };
+    // Render the graph into svg g
+    d3.select("svg g").call(render, g);
+  }
+  // Set up zoom support
+  const svg = d3.select("svg"),
+    inner = d3.select("svg g"),
+    zoom = d3.zoom().on("zoom", function () {
+      inner.attr("transform", d3.event.transform);
+    });
+  svg.call(zoom);
+
+  // Create and configure the renderer
+  const render = dagreD3.render();
+
+  let isClient = false;
+  isClient = true;
+
+  if (isClient) {
+    // Mark all nodes and their edges as active
+    cssRules = document.getElementById('graph-style').sheet.cssRules;
+    cssRules[3].style.opacity = 1;
+    cssRules[4].style.opacity = 1;
+
+    let graph;
+    graph = `digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class="", fontsize=12, label=utter_information_about_erasmus_program];
+2 [class="", fontsize=12, label=utter_information_erasmus_offer];
+5 [class="", fontsize=12, label=utter_information_erasmus_application_procedure];
+8 [class="", fontsize=12, label=utter_information_erasmus_list_partner_universities];
+11 [class="", fontsize=12, label=utter_information_erasmus_benefits];
+14 [class="", fontsize=12, label=utter_information_erasmus_language_preparation];
+17 [class="", fontsize=12, label=utter_information_erasmus_transfer_credits];
+19 [class="", fontsize=12, label=utter_goodbye];
+20 [class="", fontsize=12, label=utter_assist_academic_guidance];
+21 [class="", fontsize=12, label=utter_assist_academic_guidance_erasmus_coordinator];
+23 [class="", fontsize=12, label=utter_assist_academic_guidance_orientation];
+25 [class="", fontsize=12, label=utter_assist_academic_guidance_online_resource];
+27 [class="", fontsize=12, label=utter_assist_academic_guidance_support];
+28 [class="", fontsize=12, label=action_get_funding];
+29 [class="", fontsize=12, label=utter_language_support];
+30 [class="", fontsize=12, label=utter_language_support_TANDEM];
+32 [class="", fontsize=12, label=utter_language_support_intensive];
+34 [class="", fontsize=12, label=utter_language_support_material];
+36 [class="", fontsize=12, label=utter_language_support_advice];
+37 [class="", fontsize=12, label=utter_network_opportunities];
+39 [class="", fontsize=12, label=utter_network_opportunities_international_connections];
+41 [class="", fontsize=12, label=utter_network_opportunities_alumni_association];
+43 [class="", fontsize=12, label=utter_network_opportunities_interest_group];
+44 [class="", fontsize=12, label=utter_greet];
+46 [class="", fontsize=12, label=utter_network_opportunities_social_media];
+48 [class="", fontsize=12, label=utter_requirements_to_apply];
+49 [class="", fontsize=12, label=utter_requirements_internship];
+50 [class="", fontsize=12, label=utter_requirements_advantages];
+51 [class="", fontsize=12, label=utter_country_classification_and_funding_groups];
+52 [class="", fontsize=12, label=utter_ask_funding];
+54 [class="", fontsize=12, label=utter_requirements_study];
+58 [class="", fontsize=12, label=utter_events];
+59 [class="", fontsize=12, label=utter_specific_event_sports];
+61 [class="", fontsize=12, label=utter_specific_event_tech];
+63 [class="", fontsize=12, label=utter_specific_event_business];
+65 [class="", fontsize=12, label=utter_specific_event_cultural];
+66 [class="", fontsize=12, label="..."];
+68 [class=intent, fillcolor=lightblue, label="information about erasmus", shape=rect, style=filled];
+69 [class=intent, fillcolor=lightblue, label="Help with studies", shape=rect, style=filled];
+70 [class=intent, fillcolor=lightblue, label=Croatia, shape=rect, style=filled];
+71 [class=intent, fillcolor=lightblue, label=language, shape=rect, style=filled];
+72 [class=intent, fillcolor=lightblue, label=opportunities, shape=rect, style=filled];
+73 [class=intent, fillcolor=lightblue, label="good morning", shape=rect, style=filled];
+74 [class=intent, fillcolor=lightblue, label="Requirement for Application", shape=rect, style=filled];
+75 [class=intent, fillcolor=lightblue, label="How can I participate in Erasmus events?", shape=rect, style=filled];
+76 [class=intent, fillcolor=lightblue, label=yes, shape=rect, style=filled];
+77 [class=intent, fillcolor=lightblue, label=nah, shape=rect, style=filled];
+78 [class=intent, fillcolor=lightblue, label="What documents do i need for the application procedure", shape=rect, style=filled];
+79 [class=intent, fillcolor=lightblue, label="list universitites", shape=rect, style=filled];
+80 [class=intent, fillcolor=lightblue, label="what is the advantages", shape=rect, style=filled];
+81 [class=intent, fillcolor=lightblue, label="Erasmus language preparation", shape=rect, style=filled];
+82 [class=intent, fillcolor=lightblue, label="transfer credits", shape=rect, style=filled];
+83 [class=intent, fillcolor=lightblue, label="Coordinator responsibilities", shape=rect, style=filled];
+84 [class=intent, fillcolor=lightblue, label="Orientation session details", shape=rect, style=filled];
+85 [class=intent, fillcolor=lightblue, label="Online study resources", shape=rect, style=filled];
+86 [class=intent, fillcolor=lightblue, label="University support services", shape=rect, style=filled];
+87 [class=intent, fillcolor=lightblue, label="What is a TANDEM Program?", shape=rect, style=filled];
+88 [class=intent, fillcolor=lightblue, label=intensive, shape=rect, style=filled];
+89 [class=intent, fillcolor=lightblue, label="learning material", shape=rect, style=filled];
+90 [class=intent, fillcolor=lightblue, label=advice, shape=rect, style=filled];
+91 [class=intent, fillcolor=lightblue, label=international, shape=rect, style=filled];
+92 [class=intent, fillcolor=lightblue, label=association, shape=rect, style=filled];
+93 [class=intent, fillcolor=lightblue, label=interest, shape=rect, style=filled];
+94 [class=intent, fillcolor=lightblue, label=medias, shape=rect, style=filled];
+95 [class=intent, fillcolor=lightblue, label="i want to know about internship requirements", shape=rect, style=filled];
+96 [class=intent, fillcolor=lightblue, label=s, shape=rect, style=filled];
+97 [class=intent, fillcolor=lightblue, label=advantage, shape=rect, style=filled];
+98 [class=intent, fillcolor=lightblue, label="Tell me about Erasmus+ funding in Italy", shape=rect, style=filled];
+99 [class=intent, fillcolor=lightblue, label="How about Norway", shape=rect, style=filled];
+100 [class=intent, fillcolor=lightblue, label=advantage, shape=rect, style=filled];
+101 [class=intent, fillcolor=lightblue, label="Can you tell me about sports", shape=rect, style=filled];
+102 [class=intent, fillcolor=lightblue, label="Are there any tech-related events organized by Erasmus?", shape=rect, style=filled];
+103 [class=intent, fillcolor=lightblue, label="Are there any business events scheduled?", shape=rect, style=filled];
+104 [class=intent, fillcolor=lightblue, label="What cultural events are happening with Erasmus?", shape=rect, style=filled];
+105 [class=intent, fillcolor=lightblue, label="have a nice day", shape=rect, style=filled];
+0 -> 66  [class="", key=NONE, label=""];
+0 -> 68  [class="", key=0];
+0 -> 69  [class="", key=0];
+0 -> 70  [class="", key=0];
+0 -> 71  [class="", key=0];
+0 -> 72  [class="", key=0];
+0 -> 73  [class="", key=0];
+0 -> 74  [class="", key=0];
+0 -> 75  [class="", key=0];
+1 -> 76  [class="", key=0];
+1 -> 77  [class="", key=0];
+2 -> "-1"  [class="", key=NONE, label=""];
+2 -> 78  [class="", key=0];
+2 -> 79  [class="", key=0];
+2 -> 80  [class="", key=0];
+2 -> 81  [class="", key=0];
+2 -> 82  [class="", key=0];
+5 -> "-1"  [class="", key=NONE, label=""];
+8 -> "-1"  [class="", key=NONE, label=""];
+11 -> "-1"  [class="", key=NONE, label=""];
+14 -> "-1"  [class="", key=NONE, label=""];
+17 -> "-1"  [class="", key=NONE, label=""];
+19 -> "-1"  [class="", key=NONE, label=""];
+20 -> 83  [class="", key=0];
+20 -> 84  [class="", key=0];
+20 -> 85  [class="", key=0];
+20 -> 86  [class="", key=0];
+21 -> "-1"  [class="", key=NONE, label=""];
+23 -> "-1"  [class="", key=NONE, label=""];
+25 -> "-1"  [class="", key=NONE, label=""];
+27 -> "-1"  [class="", key=NONE, label=""];
+28 -> "-1"  [class="", key=NONE, label=""];
+29 -> "-1"  [class="", key=NONE, label=""];
+29 -> 87  [class="", key=0];
+29 -> 88  [class="", key=0];
+29 -> 89  [class="", key=0];
+29 -> 90  [class="", key=0];
+30 -> "-1"  [class="", key=NONE, label=""];
+32 -> "-1"  [class="", key=NONE, label=""];
+34 -> "-1"  [class="", key=NONE, label=""];
+36 -> "-1"  [class="", key=NONE, label=""];
+37 -> "-1"  [class="", key=NONE, label=""];
+37 -> 91  [class="", key=0];
+37 -> 92  [class="", key=0];
+37 -> 93  [class="", key=0];
+37 -> 94  [class="", key=0];
+39 -> "-1"  [class="", key=NONE, label=""];
+41 -> "-1"  [class="", key=NONE, label=""];
+43 -> "-1"  [class="", key=NONE, label=""];
+44 -> "-1"  [class="", key=NONE, label=""];
+46 -> "-1"  [class="", key=NONE, label=""];
+48 -> 95  [class="", key=0];
+48 -> 96  [class="", key=0];
+49 -> 97  [class="", key=0];
+50 -> 98  [class="", key=0];
+51 -> 99  [class="", key=0];
+52 -> "-1"  [class="", key=NONE, label=""];
+54 -> 100  [class="", key=0];
+58 -> 101  [class="", key=0];
+58 -> 102  [class="", key=0];
+58 -> 103  [class="", key=0];
+58 -> 104  [class="", key=0];
+59 -> "-1"  [class="", key=NONE, label=""];
+61 -> "-1"  [class="", key=NONE, label=""];
+63 -> "-1"  [class="", key=NONE, label=""];
+65 -> "-1"  [class="", key=NONE, label=""];
+66 -> 105  [class="", key=0];
+68 -> 1  [class="", key=0];
+69 -> 20  [class="", key=0];
+70 -> 28  [class="", key=0];
+71 -> 29  [class="", key=0];
+72 -> 37  [class="", key=0];
+73 -> 44  [class="", key=0];
+74 -> 48  [class="", key=0];
+75 -> 58  [class="", key=0];
+76 -> 2  [class="", key=0];
+77 -> 19  [class="", key=0];
+78 -> 5  [class="", key=0];
+79 -> 8  [class="", key=0];
+80 -> 11  [class="", key=0];
+81 -> 14  [class="", key=0];
+82 -> 17  [class="", key=0];
+83 -> 21  [class="", key=0];
+84 -> 23  [class="", key=0];
+85 -> 25  [class="", key=0];
+86 -> 27  [class="", key=0];
+87 -> 30  [class="", key=0];
+88 -> 32  [class="", key=0];
+89 -> 34  [class="", key=0];
+90 -> 36  [class="", key=0];
+91 -> 39  [class="", key=0];
+92 -> 41  [class="", key=0];
+93 -> 43  [class="", key=0];
+94 -> 46  [class="", key=0];
+95 -> 49  [class="", key=0];
+96 -> 54  [class="", key=0];
+97 -> 50  [class="", key=0];
+98 -> 51  [class="", key=0];
+99 -> 52  [class="", key=0];
+100 -> 50  [class="", key=0];
+101 -> 59  [class="", key=0];
+102 -> 61  [class="", key=0];
+103 -> 63  [class="", key=0];
+104 -> 65  [class="", key=0];
+105 -> 19  [class="", key=0];
+}
+`;
+    drawGraph(graph);
+  } else {
+    serveGraph();
+  }
+
+
+</script>
+</body>
+</html>

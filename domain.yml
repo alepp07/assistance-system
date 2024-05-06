@@ -1,0 +1,293 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - information_about_erasmus_program
+  - events
+  - requirements_to_apply
+  - specific_event_tech
+  - specific_event_business
+  - specific_event_cultural
+  - specific_event_sports
+  - requirements_internship
+  - requirements_study
+  - requirements_advantages
+  - country_classification_and_funding_groups
+  - information_erasmus_yes
+  - information_erasmus_no
+  - information_erasmus_list_partner_universities
+  - information_erasmus_application_procedure
+  - information_erasmus_transfer_credits
+  - information_erasmus_benefits
+  - information_erasmus_language_preparation
+  - assist_academic_guidance
+  - assist_academic_guidance_erasmus_coordinator
+  - assist_academic_guidance_support
+  - assist_academic_guidance_online_resource
+  - assist_academic_guidance_orientation
+  - ask_funding
+  - language_support
+  - language_support_TANDEM
+  - language_support_material
+  - language_support_advice
+  - language_support_intensive
+  - network_opportunities
+  - network_opportunities_international_connections
+  - network_opportunities_alumni_association
+  - network_opportunities_interest_group
+  - network_opportunities_social_media
+
+entities:
+  - countries
+
+responses:
+  utter_greet:
+    - text: |
+        Hello, welcome to ErasmusConnect! We could provide you information about
+        ● Erasmus 
+        ● Language support
+        ● Network Opportunities
+        ● Events
+        ● Requirement for Application
+        ● Academic assist guidance
+
+  utter_goodbye:
+    - text: "Bye, have a great day!"
+
+  utter_events:
+    - text: |
+        Erasmus organizes a range of events such as cultural exchanges, workshops, and seminars to promote cultural understanding and enhance the overall experience of participating students.
+        Related events
+        ● tech
+        ● cultural
+        ● business-related
+        ● sports
+
+  utter_specific_event_sports:
+    - text: >
+        We are delighted to invite you to our distinguished 'Sports Extravaganza 2023' scheduled for November 20th. This event offers a splendid platform to showcase your athletic prowess and engage with fellow sports enthusiasts. Please mark your calendar for this exciting opportunity.
+
+        For registration details and further instructions, kindly check your email. We look forward to your participation!
+
+
+  utter_specific_event_cultural:
+    - text: >
+        Immerse yourself in the rich tapestry of cultural diversity at our esteemed 'Cultural Fusion Festival 2023' scheduled for October 20th. This event promises an array of captivating experiences, including art exhibitions, music performances, and cultural workshops.
+
+        For registration details and further instructions, please check your email. We look forward to your enthusiastic participation!
+
+  utter_specific_event_tech:
+    - text: >
+        Gear up for our upcoming tech extravaganza, 'TechConnect 2023,' set to unfold on November 15th. Stay tuned for detailed insights into cutting-edge workshops and enlightening seminars.
+
+        For registration details and additional information, please refer to your email. We anticipate your active involvement!
+
+  utter_specific_event_business:
+    - text: >
+        We extend a warm invitation to join us for 'Business Insights 2023' on December 5th. This event offers a unique opportunity to connect with industry leaders and gain valuable insights into the business landscape.
+
+        Please check your email for registration details and further instructions. We eagerly await your esteemed presence!
+
+
+  utter_requirements_to_apply:
+    - text: "Do you want to know about study requirements or internship requirements"
+
+  utter_requirements_internship:
+    - text: |
+        - You must be a DIT student (study full time)
+        - Completed application documents
+        - Recognized internship (funding for volunteer internships as well, if they are relevant to the program of study)
+        - Average grades and language skills (good command of the working language, basic knowledge of the local language)
+        - Motivation for an internship abroad
+        (Do you want to know more? We could provide you with Advantages and country classification and funding groups)
+
+  utter_requirements_study:
+    - text: |
+        Here are the following requirements
+        - Enrollment in a higher education institution participating in the Erasmus+ program
+        - Completion of necessary application documents
+        - Meeting the academic requirements set by the host institution
+        - Adequate language proficiency in the working language of the host institution
+        - Motivation for studying abroad with Erasmus
+        (Do you want to know more? We could provide you with Advantages and country classification and its funding groups)
+
+  utter_requirements_advantages:
+    - text: |
+       - Students receive a EU internship contract between the university, the company and the student
+       - Students receive academic recognition of the internship
+       - Students receive support during the internship through a contact person at both the home university and in the company
+       - Students receive funding to cover the extra costs of living abroad
+       - Students receive cultural, language, organisational support in preparation for the internship
+       - Students with disabilities receive special funding
+
+  utter_country_classification_and_funding_groups:
+    - text: |
+        Erasmus+ funding varies based on the country of your exchange.
+        Certain target groups may receive a monthly top-up of €250, including first-generation academics, working students, students with disabilities, students with chronic illnesses, and students with children.
+        Which country would you like to know about the funding rate?
+          
+        
+
+  utter_information_about_erasmus_program:
+    - text: "The Erasmus Program is a European Union student exchange program that offers opportunities for students to study or work in different countries within the EU. It promotes cooperation between higher education institutions and supports the mobility of students and staff. Do you want to continue? (yes/no)"
+
+  utter_information_erasmus_offer:
+    - text: "We could provide you more about the Benefits, List of partner universities, Application procedure, Transfer of credits and information about Erasmus language preparation"
+
+
+  utter_information_erasmus_benefits:
+    - text: >
+        - Academic Opportunities: Participants in the Erasmus Program have the opportunity to study at a host university or institution in another European country. This exposure to different academic environments, teaching methods, and research facilities can enhance their educational experience.
+
+        - Cultural Exchange: Living and studying in a foreign country provides participants with the opportunity to immerse themselves in a new culture. This cultural exchange fosters understanding, tolerance, and the ability to work effectively in a multicultural environment.
+
+        - Language Skills: Many Erasmus Program participants study in a country where a different language is spoken. This immersion is an excellent opportunity to improve language skills, both in academic and everyday contexts.
+
+        - Networking: The Erasmus Program facilitates networking among students, academics, and professionals across Europe. Building international connections can be beneficial for future collaborations, both in academia and in the professional world.
+
+  utter_information_erasmus_transfer_credits:
+    - text: |
+        Recognition of subjects and grade conversion for academic achievements abroad is crucial.
+        Use the provided forms for easy arrangement (available for download on the international website).
+        Note: Examination achievements completed at the home institute cannot be recognized.
+  
+        **Contact People for All Courses:**
+        - Grading Conversion: Iris Reul
+  
+        **Necessary Forms:**
+        - Internal Learning Agreement/Proposal for Course Recognition from Abroad
+        - Exception for Faculty of Computer Science: Special rules apply.
+        - ERASMUS Learning Agreement (ERASMUS+ Students)
+
+
+  utter_information_erasmus_language_preparation:
+    - text: |
+        The European Commission offers online language tests (EN, ES, FR, IT, NL) for Erasmus+ participants, mandatory before and after mobility. It's not a funding criterion or for native speakers. The test, post-selection, serves as a placement test. 
+        Erasmus+ students may get licensed for free online language courses, granted by the home university after document and language skills verification. Financially supported language courses are available before the abroad period, depending on available resources. 
+
+        English courses aren't funded, except in exceptional cases. Contact the International Office for more information.
+
+  utter_information_erasmus_application_procedure:
+    - text: |
+        As all the scholarship programmes outlined here are administered in the International Office, you only need to submit ONE application. Applications may be handed in to the International Office; there is no defined application deadline
+        Required documents:
+          - Application form
+          - CV in tabular form
+          - Financial plan
+          - Current transcript (grade sheet)
+          - Passport photo
+          - Internship contract, if applicable
+
+
+  utter_information_erasmus_list_partner_universities:
+    - text: |
+        Here is a list of partner universities for the Erasmus Program:
+        [Partner Universities List (PDF)](https://www.th-deg.de/Studierende/Auslandsstudium/partnerunis_studenten.pdf)
+        
+  utter_assist_academic_guidance:
+    - text: |
+        TH Deggendorf also has academic support services that can assist you with any specific challenges you might face. They offer tutoring for various subjects, writing workshops to improve academic writing skills, and study skill development programs to help you excel in your coursework.
+        We can support you with 
+        ● Erasmus Coordinator
+        ● University Support
+        ● Online Resources
+        ● Orientation.
+
+  utter_assist_academic_guidance_erasmus_coordinator:
+    - text: |
+        Each participating institution usually has an Erasmus+ coordinator. This person can provide detailed information about the program, eligibility criteria, application procedures, and available opportunities.
+
+  utter_assist_academic_guidance_support:
+    - text: |
+        THD's international office or department may offer guidance on Erasmus+ opportunities. They can help you understand the application process, find suitable partner institutions, and provide information on available grants.
+
+  utter_assist_academic_guidance_online_resource:
+    - text: |
+        The official Erasmus+ website (ec.europa.eu/programmes/erasmus-plus) provides comprehensive information about the program, including application guidelines, partner institutions, and success stories. It's a valuable resource to understand the program's structure and requirements.
+
+  utter_assist_academic_guidance_orientation:
+    - text: |
+        THD conducts pre-departure orientations for students participating in Erasmus+. These sessions cover practical information, cultural aspects, and academic expectations, preparing you for a successful experience.
+
+  utter_ask_funding:
+    - text: "The funding rate in {0} is {1}."
+    - text: "I'm sorry, but I couldn't find funding information for {0}."
+
+  utter_ask_funding_not_determined:
+    - text: "I couldn't determine the country you're asking about."
+
+  utter_language_support:
+    - text: |
+        We can provide you with this following information about
+        ● TANDEM Program
+        ● Intensive Language Course
+        ● Learning Materials
+        ● Advice and Tips
+
+  utter_language_support_TANDEM:
+    - text: |
+        Tandem language programs involve pairing participants with a native speaker of the language they want to learn, creating a mutually beneficial language exchange. You can contact our language centre to apply.
+
+  utter_language_support_intensive:
+    - text: |
+        In some cases, participants may have the opportunity to attend intensive language courses upon arrival in the host country. These courses are designed to quickly enhance language skills and help participants feel more comfortable in their new environment.
+
+  utter_language_support_material:
+    - text: |
+        Erasmus+ may provide participants with language learning materials such as books, online resources, and multimedia content to support independent language study. Once you registered to our system, you can apply to login to our university library
+
+  utter_language_support_advice:
+    - text: |
+        Advice to improve your language skills
+
+        1. Improve Your Pronunciation and Accent
+        2. Find a Language Exchange Partner
+        3. Always Read Out Loud
+        4. Speak Often—and Make Mistakes!
+        5. Listen According to Your Interests
+        6. Diversify Your Listening Resources
+        7. Don't Forget about Passive Listening
+        8. Take Advantage of Parallel Texts
+        9. Read Like a Child
+        10. Venture into Comic Books
+
+  utter_network_opportunities:
+    - text: |
+        Erasmus offers various networking opportunities for students to connect with other students, we could provide you information about
+        ●  Alumni association
+        ●  Interest Group
+        ●  International connection
+        ●  Social Media
+
+  utter_network_opportunities_international_connections:
+    - text: |
+        Erasmus+ allows you to establish international connections with students, academics, and professionals from different countries. This network can be valuable for future collaborations, both academically and professionally.
+
+  utter_network_opportunities_alumni_association:
+    - text: |
+        Erasmus+ often has active alumni networks. Joining these associations allows you to stay connected with fellow participants even after the program ends. Alumni networks often organize events, conferences, and other activities that facilitate ongoing networking.
+        Make sure to check our social medias for more info!
+
+  utter_network_opportunities_interest_group:
+    - text: |
+        Erasmus+ participants often form groups based on shared interests or skills. Joining such groups can lead to friendships, collaborative projects, and the exchange of knowledge and expertise.
+        Make sure to check our listed Events in the events section to find your best suited group.
+
+  utter_network_opportunities_social_media:
+    - text: |
+        Many Erasmus+ participants connect through social media groups, forums, and online platforms. These virtual communities allow you to stay in touch with fellow participants, share experiences, and seek advice.
+        You can connect through our social medias, make sure to follow to get our latest news
+        Instagram - @th_deggendorf
+        X         - @th_deggendorf
+        Facebook  - HochschuleDeggendorf
+        Youtube   - THDeggendorf
+
+actions:
+  - action_get_funding
+
+        
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

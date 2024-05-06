@@ -1,0 +1,6 @@
+[
+  {
+    "name": "countries",
+    "pattern": "(\\bDenmark\\b|\\bFinland\\b|\\bIreland\\b|\\bIceland\\b|\\bLiechtenstein\\b|\\bLuxembourg\\b|\\bNorway\\b|\\bSweden\\b|\\bAustria\\b|\\bBelgium\\b|\\bCyprus\\b|\\bFrance\\b|\\bGreece\\b|\\bItaly\\b|\\bMalta\\b|\\bNetherlands\\b|\\bPortugal\\b|\\bSpain\\b|\\bBulgaria\\b|\\bCroatia\\b|\\bCzech\\ Republic\\b|\\bEstonia\\b|\\bHungary\\b|\\bLatvia\\b|\\bLithuania\\b|\\bNorth\\ Macedonia\\b|\\bPoland\\b|\\bRomania\\b|\\bSerbia\\b|\\bSlovakia\\b|\\bSlovenia\\b|\\bTurkey\\b)"
+  }
+]

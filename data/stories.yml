@@ -1,0 +1,236 @@
+version: "3.1"
+
+stories:
+- story: greet the bot
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: language support
+  steps:
+  - intent: language_support
+  - action: utter_language_support
+
+#- story: events
+#  steps:
+#  - intent: events
+#  - action: utter_events
+
+#Use Case 1 (Requirement for Application)
+
+- story: user asks about requirements to apply (internship)
+  steps:
+    - intent: requirements_to_apply
+    - action: utter_requirements_to_apply
+    - intent: requirements_internship
+    - action: utter_requirements_internship
+    - intent: requirements_advantages
+    - action: utter_requirements_advantages
+    - intent: country_classification_and_funding_groups
+    - action: utter_country_classification_and_funding_groups
+    - intent: ask_funding
+    - action: utter_ask_funding
+
+- story: user asks about requirements to apply (study)
+  steps:
+    - intent: requirements_to_apply
+    - action: utter_requirements_to_apply
+    - intent: requirements_study
+    - action: utter_requirements_study
+    - intent: requirements_advantages
+    - action: utter_requirements_advantages
+    - intent: country_classification_and_funding_groups
+    - action: utter_country_classification_and_funding_groups
+    - intent: ask_funding
+    - action: utter_ask_funding
+
+#Use Case 2 (Events)
+
+- story: student ask for specific event (sports)
+  steps:
+  - intent: events
+  - action: utter_events
+  - intent: specific_event_sports
+  - action: utter_specific_event_sports
+
+- story: student ask for specific event (tech)
+  steps:
+  - intent: events
+  - action: utter_events
+  - intent: specific_event_tech
+  - action: utter_specific_event_tech
+
+- story: student ask for business event
+  steps:
+  - intent: events
+  - action: utter_events
+  - intent: specific_event_business
+  - action: utter_specific_event_business
+
+- story: student ask for cultural event
+  steps:
+  - intent: events
+  - action: utter_events
+  - intent: specific_event_cultural
+  - action: utter_specific_event_cultural
+
+#Use Case 3 (Information about Erasmus)
+
+- story: introduction to Erasmus Program
+  steps:
+  - intent: information_about_erasmus_program
+  - action: utter_information_about_erasmus_program
+  - intent: information_erasmus_yes
+  - action: utter_information_erasmus_offer
+
+- story: information about Erasmus Program (application procedure)
+  steps:
+  - intent: information_about_erasmus_program
+  - action: utter_information_about_erasmus_program
+  - intent: information_erasmus_yes
+  - action: utter_information_erasmus_offer
+  - intent: information_erasmus_application_procedure
+  - action: utter_information_erasmus_application_procedure
+
+- story: information about Erasmus Program (list of partner universities)
+  steps:
+  - intent: information_about_erasmus_program
+  - action: utter_information_about_erasmus_program
+  - intent: information_erasmus_yes
+  - action: utter_information_erasmus_offer
+  - intent: information_erasmus_list_partner_universities
+  - action: utter_information_erasmus_list_partner_universities
+
+- story: information about Erasmus Program (benefits)
+  steps:
+  - intent: information_about_erasmus_program
+  - action: utter_information_about_erasmus_program
+  - intent: information_erasmus_yes
+  - action: utter_information_erasmus_offer
+  - intent: information_erasmus_benefits
+  - action: utter_information_erasmus_benefits
+
+- story: information about Erasmus Program (Erasmus language preparation)
+  steps:
+  - intent: information_about_erasmus_program
+  - action: utter_information_about_erasmus_program
+  - intent: information_erasmus_yes
+  - action: utter_information_erasmus_offer
+  - intent: information_erasmus_language_preparation
+  - action: utter_information_erasmus_language_preparation
+
+- story: information about Erasmus Program (transfer_credits)
+  steps:
+  - intent: information_about_erasmus_program
+  - action: utter_information_about_erasmus_program
+  - intent: information_erasmus_yes
+  - action: utter_information_erasmus_offer
+  - intent: information_erasmus_transfer_credits
+  - action: utter_information_erasmus_transfer_credits
+
+- story: information about Erasmus Program (and stop)
+  steps:
+  - intent: information_about_erasmus_program
+  - action: utter_information_about_erasmus_program
+  - intent: information_erasmus_no
+  - action: utter_goodbye
+
+#Use-case 4 (Academic guidance)
+
+- story: assist with academic guidance (erasmus coordinator)
+  steps:
+  - intent: assist_academic_guidance
+  - action: utter_assist_academic_guidance
+  - intent: assist_academic_guidance_erasmus_coordinator
+  - action: utter_assist_academic_guidance_erasmus_coordinator
+
+- story: assist with academic guidance (guidance orientation)
+  steps:
+  - intent: assist_academic_guidance
+  - action: utter_assist_academic_guidance
+  - intent: assist_academic_guidance_orientation
+  - action: utter_assist_academic_guidance_orientation
+
+- story: assist with academic guidance (online resources)
+  steps:
+  - intent: assist_academic_guidance
+  - action: utter_assist_academic_guidance
+  - intent: assist_academic_guidance_online_resource
+  - action: utter_assist_academic_guidance_online_resource
+
+- story: assist with academic guidance (guidance support)
+  steps:
+  - intent: assist_academic_guidance
+  - action: utter_assist_academic_guidance
+  - intent: assist_academic_guidance_support
+  - action: utter_assist_academic_guidance_support
+
+- story: User asks about funding for a specific country
+  steps:
+  - intent: ask_funding
+  - action: action_get_funding
+
+#Use-case 5 (Language Support)
+
+- story: language support (TANDEM)
+  steps:
+  - intent: language_support
+  - action: utter_language_support
+  - intent: language_support_TANDEM
+  - action: utter_language_support_TANDEM
+
+- story: language support (intensive course)
+  steps:
+  - intent: language_support
+  - action: utter_language_support
+  - intent: language_support_intensive
+  - action: utter_language_support_intensive
+
+- story: language support (learning material)
+  steps:
+  - intent: language_support
+  - action: utter_language_support
+  - intent: language_support_material
+  - action: utter_language_support_material
+
+- story: language support (advice)
+  steps:
+  - intent: language_support
+  - action: utter_language_support
+  - intent: language_support_advice
+  - action: utter_language_support_advice
+
+#Use-case 6 (Network Opportunities)
+
+- story: network opportunities
+  steps:
+  - intent: network_opportunities
+  - action: utter_network_opportunities
+
+- story: network opportunities (international connections)
+  steps:
+  - intent: network_opportunities
+  - action: utter_network_opportunities
+  - intent: network_opportunities_international_connections
+  - action: utter_network_opportunities_international_connections
+
+- story: network opportunities (alumni association)
+  steps:
+  - intent: network_opportunities
+  - action: utter_network_opportunities
+  - intent: network_opportunities_alumni_association
+  - action: utter_network_opportunities_alumni_association
+
+- story: network opportunities (interest group)
+  steps:
+  - intent: network_opportunities
+  - action: utter_network_opportunities
+  - intent: network_opportunities_interest_group
+  - action: utter_network_opportunities_interest_group
+
+- story: network opportunities (social media)
+  steps:
+  - intent: network_opportunities
+  - action: utter_network_opportunities
+  - intent: network_opportunities_social_media
+  - action: utter_network_opportunities_social_media

@@ -1,0 +1,336 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: events
+  examples: |
+    - What kind of events does Erasmus organize?
+    - Are there any upcoming events for Erasmus participants?
+    - How can I participate in Erasmus events?
+    - Can you tell me more about event
+    - Events
+    - event
+
+- intent: specific_event_sports
+  examples: |
+    - Can you tell me about sports
+    - sports event
+    - sports
+
+- intent: specific_event_tech
+  examples: |
+    - Can you tell me about any tech events?
+    - Are there any tech-related events organized by Erasmus?
+
+- intent: specific_event_business
+  examples: |
+    - Are there any business events scheduled?
+    - Can you provide information about business events related to Erasmus?
+
+- intent: specific_event_cultural
+  examples: |
+    - Is there any cultural event happening?
+    - What cultural events are happening with Erasmus?
+
+- intent: requirements_to_apply
+  examples: |
+    - requirements to apply
+    - Requirement for Application
+    - four
+
+- intent: requirements_study
+  examples: |
+    - study
+    - s
+    - studies
+
+- intent: requirements_internship
+  examples: |
+    - intern
+    - internship
+    - internships
+    - i
+    - i want to know about internship requirements
+- intent: requirements_advantages
+  examples: |
+    - Yes, tell me more about the advantages
+    - What are the advantages?
+    - advantage
+
+- intent: country_classification_and_funding_groups
+  examples: |
+    - What are the funding rates for different countries?
+    - Tell me about Erasmus+ funding by country
+    - Explain country classification and funding groups
+    - What is the funding in [Denmark](countries)?
+    - Tell me about Erasmus+ funding in [Italy](countries)
+    - [Argentina](countries)
+
+- lookup: countries
+  examples: |
+    - Denmark
+    - Finland
+    - Ireland
+    - Iceland
+    - Liechtenstein
+    - Luxembourg
+    - Norway
+    - Sweden
+    - Austria
+    - Belgium
+    - Cyprus
+    - France
+    - Greece
+    - Italy
+    - Malta
+    - Netherlands
+    - Portugal
+    - Spain
+    - Bulgaria
+    - Croatia
+    - Czech Republic
+    - Estonia
+    - Hungary
+    - Latvia
+    - Lithuania
+    - North Macedonia
+    - Poland
+    - Romania
+    - Serbia
+    - Slovakia
+    - Slovenia
+    - Turkey
+
+- intent: information_about_erasmus_program
+  examples: |
+    - one
+    - information about erasmus
+    - erasmus information
+    - erasmus info
+
+
+
+- intent: information_erasmus_yes
+  examples: |
+    - yes please
+    - yes
+    - tell me more
+
+- intent: information_erasmus_no
+  examples: |
+    - nope
+    - no
+    - that is all
+    - nah
+- intent: information_erasmus_benefits
+  examples: |
+    - tell me about the benefits
+    - benefits
+    - what is the benefit
+    - what is the advantages
+
+- intent: information_erasmus_transfer_credits
+  examples: |
+    - how can i transfer my credit from my pass university
+    - transfer of credits
+    - transfer credit
+    - transfer credits
+    - credits
+    - I want to know how to transfer my credits
+
+- intent: information_erasmus_language_preparation
+  examples: |
+    - Can you please tell me about language preparation
+    - What is Erasmus language preparation
+    - Erasmus language preparation
+    - Language preparation
+
+- intent: information_erasmus_application_procedure
+  examples: |
+    - Can you please tell me about the application procedure
+    - What is the application procedure
+    - Application procedure
+    - Procedures
+    - What is the process of application procedures
+    - What documents do i need for the application procedure
+
+- intent: information_erasmus_list_partner_universities
+  examples: |
+    - What is the list of the partner universitites
+    - list universitites
+    - list of partner universities
+    - Which university are there available for Erasmus program
+
+- intent: assist_academic_guidance
+  examples: |
+    - Provide academic guidance
+    - Academic assistance
+    - Help with studies
+    - Guidance for courses
+    - Explain academic support
+
+- intent: assist_academic_guidance_erasmus_coordinator
+  examples: |
+    - What is an Erasmus Coordinator?
+    - Tell me about the coordinator role
+    - How can the Erasmus Coordinator help?
+    - Coordinator responsibilities
+
+- intent: assist_academic_guidance_support
+  examples: |
+    - University support services
+    - Academic support at the university
+    - Information office support
+    - How does the university support students?
+
+- intent: assist_academic_guidance_online_resource
+  examples: |
+    - Online study resources
+    - Access to online materials
+    - What online resources are available?
+    - Resources for academic studies online
+
+- intent: assist_academic_guidance_orientation
+  examples: |
+    - Explain orientation for academic guidance
+    - What is covered in orientation?
+    - Orientation session details
+    - Information about academic orientation
+    
+- intent: ask_funding
+  examples: |
+    - What is the funding in [Denmark](countries)?
+    - Tell me about Erasmus+ funding in [Italy](countries)
+    - Funding rate for [Spain](countries)
+    - [Greece](countries)
+    - [Norway](countries)
+    - [Portugal](countries)
+    - [Finland](countries)
+    - [Luxembourg](countries)
+    - What is the funding rate for [Ireland](countries)?
+    - Tell me about Erasmus+ funding in [Iceland](countries)
+    - Funding rate for [Liechtenstein](countries)
+    - How about [Norway](countries)
+    - What is the funding like in [Sweden](countries)
+    - [Austria](countries)
+    - [Belgium](countries)
+    - [Cyprus](countries)
+    - What is the funding rate for [France](countries)?
+    - Tell me about Erasmus+ funding in [Italy](countries)
+    - Funding rate for [Malta](countries)
+    - How about [Netherlands](countries)
+    - [Bulgaria](countries)
+    - [Croatia](countries)
+    - [Czech Republic](countries)
+    - What is the funding rate for [Estonia](countries)?
+    - Tell me about Erasmus+ funding in [Hungary](countries)
+    - Funding rate for [Latvia](countries)
+    - How about [Lithuania](countries)
+    - What is the funding like in [North Macedonia](countries)
+    - [Poland](countries)
+    - [Romania](countries)
+    - [Serbia](countries)
+    - What is the funding rate for [Slovakia](countries)?
+    - Tell me about Erasmus+ funding in [Slovenia](countries)
+    - Funding rate for [Turkey](countries)
+
+- intent: language_support
+  examples: |
+    - language 
+    - language support
+    - languages assist
+    - support
+
+- intent: language_support_TANDEM
+  examples: |
+    - What is a TANDEM Program?
+    - TANDEM
+    - I want to know about TANDEM Program
+    - Explain about TANDEM Program
+
+- intent: language_support_intensive
+  examples: |
+    - Intensive Language Course
+    - What is an intensive language course?
+    - intensive
+    - Explain more about intensive language course
+
+- intent: language_support_material
+  examples: |
+    - What is the learning material?
+    - learning material
+    - materials
+    - support material
+
+- intent: language_support_advice
+  examples: |
+    - Can you give me some advice?
+    - advice
+    - Advice for language
+    - Do you have any advice for language improvement?
+    - advice and tips
+    - tips
+
+- intent: network_opportunities
+  examples: |
+    - Are there any networking opportunities for Erasmus students?
+    - network
+    - network opportunities
+    - opportunities
+
+- intent: network_opportunities_international_connections
+  examples: |
+    - international connections
+    - do you have any international connections?
+    - international
+    - connections
+
+- intent: network_opportunities_alumni_association
+  examples: |
+    - alumni
+    - alumni association
+    - Can you explain me about alumni association?
+    - association
+
+- intent: network_opportunities_interest_group
+  examples: |
+    - interest group
+    - interest
+    - group
+    - I would like to know about interest group
+
+- intent:  network_opportunities_social_media
+  examples: |
+    - social media
+    - social 
+    - medias
+    - Explain about social media for network opportunities
+

@@ -1,0 +1,20 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-countries",
+      "2": "I-countries",
+      "3": "L-countries",
+      "4": "U-countries",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-countries": 1,
+      "I-countries": 2,
+      "L-countries": 3,
+      "U-countries": 4,
+      "O": 0
+    },
+    "num_tags": 5
+  }
+]
